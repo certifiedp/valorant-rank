@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -31,6 +30,9 @@ export default function Home() {
             Follow my spotify @marc
           </p>
         </a>
+      </div>
+      <div>
+
       </div>
     </main>
   );
