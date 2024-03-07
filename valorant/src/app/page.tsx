@@ -50,7 +50,9 @@ export function InputForm() {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Valorant Rank Predictor</FormLabel>
+              <div class>
+              <FormLabel >Valorant Rank Predictor</FormLabel>
+              </div>
               <FormControl>
                 <Input placeholder="name" {...field} />
               </FormControl>
@@ -62,6 +64,7 @@ export function InputForm() {
           )}
         />
         </form>
+        <div>
         <form onSubmit={form.handleSubmit(onSubmit)} className="object-position: center; w-2/3 space-y-6">
         <FormField
           control={form.control}
@@ -80,6 +83,9 @@ export function InputForm() {
           )}
         />
         </form>
+        </div>
+      
+      <div>
         <form onSubmit={form.handleSubmit(onSubmit)} className="object-position: center; w-2/3 space-y-6">
         <FormField
           control={form.control}
@@ -98,7 +104,10 @@ export function InputForm() {
           )}
         />
         </form>
-        <Button> Submit </Button>
+      </div>
+      <div className="flex justify-center">
+        <Button variant="destructive"> Submit </Button>
+      </div>
     </Form>
   )
 }

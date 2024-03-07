@@ -72,6 +72,16 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      theme: {
+        spacing: {
+          '1': '8px',
+          '2': '12px',
+          '3': '16px',
+          '4': '24px',
+          '5': '32px',
+          '6': '48px',
+        }
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
