@@ -24,7 +24,7 @@ const FormSchema = z.object({
   game: z.string().min(2, {
     message: "Game must be at least two characters.",
   }),
-  earnings: z.number().min(0, {
+  earnings: z.number().int().min(0, {
     message: "Earnings must be a number."
   })
 })
