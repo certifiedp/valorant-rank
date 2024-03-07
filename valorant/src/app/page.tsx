@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
+  name: z.string().min(2, {
     message: "Username must be at least two characters.",
   }),
   game: z.string().min(2, {
@@ -33,7 +33,7 @@ export function InputForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      username: "",
+      name: "",
       game: "",
       earnings: 0
     },
@@ -50,13 +50,31 @@ export function InputForm() {
     })
   }
 
+  const handleSubmit = (values: z.infer<typeof FormSchema>) => {
+    console.log({values});
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-md w-full flex flex-col gap-4">
+      <form onSubmit={form.handleSubmit((data) =>  {
+        if (data.earnings > 1000) {
+          return (
+            data.name + " , you must be radiant on " + data.game + "!"
+          )
+        }
+        else {
+          return (
+            data.name + " , you are not a radiant on " + data.game + ", you must be iron!"
+          )
+        }
+      })
+    }
+        
+        className="max-w-md w-full flex flex-col gap-4">
         <FormField
           control={form.control}
-          name="username"
+          name="name"
           render={({ field }) => (
             <FormItem>
               <FormLabel className = "text-2xl font-weight: 900; text-red flex justify-center" >Valorant Rank Predictor</FormLabel>
@@ -77,7 +95,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel> </FormLabel>
               <FormControl>
-                <Input placeholder="game" type = "name"{...field} />
+                <Input placeholder="game" type = "game"{...field} />
               </FormControl>
               <FormDescription className = "text-red w-full">
                 Input your game.
@@ -88,12 +106,12 @@ export function InputForm() {
         />
         <FormField
           control={form.control}
-          name="earnings"
+          name = "earnings"
           render={({ field }) => (
             <FormItem>
               <FormLabel></FormLabel>
               <FormControl>
-                <Input placeholder="earnings" type = "name" {...field} />
+                <Input placeholder="earnings" type = "earnings" {...field} />
               </FormControl>
               <FormDescription className = "text-red w-full">
                 Input your tournament earnings.
