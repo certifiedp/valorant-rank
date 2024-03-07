@@ -58,7 +58,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel className = "text-2xl font-weight: 900; text-red flex justify-center" >Valorant Rank Predictor</FormLabel>
               <FormControl>
-                <Input placeholder="name" {...field} />
+                <Input placeholder="name" type = "name"{...field} />
               </FormControl>
               <FormDescription className = "text-red">
                 Input your name.
@@ -72,7 +72,7 @@ export function InputForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="object-position: center; w-2/3 space-y-6">
         <FormField
           control={form.control}
-          game = "game"
+          name = "game"
           render={({ field }) => (
             <FormItem>
               <FormLabel> </FormLabel>
@@ -93,7 +93,7 @@ export function InputForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="object-position: center; w-2/3 space-y-6">
         <FormField
           control={form.control}
-          earnings = "username"
+          name="earnings"
           render={({ field }) => (
             <FormItem>
               <FormLabel></FormLabel>
@@ -108,7 +108,9 @@ export function InputForm() {
           )}
         />
         </form>
+        <div className = "max-w-d-md w-full flex flex-col gap-4">
         <Button variant="destructive"> Submit </Button>
+        </div>
       </div>
     </Form>
   )
