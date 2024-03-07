@@ -60,7 +60,7 @@ export function InputForm() {
       <form onSubmit={form.handleSubmit((data) =>  {
         if (data.earnings > 1000) {
           return (
-            data.name + " , you must be radiant on " + data.game + "!"
+            data.name + " , you must be radiant on " + data.game + "lol!"
           )
         }
         else {
