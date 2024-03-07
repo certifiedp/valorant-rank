@@ -34,6 +34,8 @@ export function InputForm() {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       username: "",
+      game: "",
+      earnings: 0
     },
   })
 
@@ -49,8 +51,9 @@ export function InputForm() {
   }
 
   return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="object-position: center; w-2/3 space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-md w-full flex flex-col gap-4">
         <FormField
           control={form.control}
           name="username"
@@ -60,16 +63,13 @@ export function InputForm() {
               <FormControl>
                 <Input placeholder="name" type = "name"{...field} />
               </FormControl>
-              <FormDescription className = "text-red">
+              <FormDescription className = "text-red w-full">
                 Input your name.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        </form>
-        <div>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="object-position: center; w-2/3 space-y-6">
         <FormField
           control={form.control}
           name = "game"
@@ -77,20 +77,15 @@ export function InputForm() {
             <FormItem>
               <FormLabel> </FormLabel>
               <FormControl>
-                <Input placeholder="game" {...field} />
+                <Input placeholder="game" type = "name"{...field} />
               </FormControl>
-              <FormDescription className = "text-red">
+              <FormDescription className = "text-red w-full">
                 Input your game.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        </form>
-        </div>
-      
-      <div>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="object-position: center; w-2/3 space-y-6">
         <FormField
           control={form.control}
           name="earnings"
@@ -98,22 +93,20 @@ export function InputForm() {
             <FormItem>
               <FormLabel></FormLabel>
               <FormControl>
-                <Input placeholder="earnings" {...field} />
+                <Input placeholder="earnings" type = "name" {...field} />
               </FormControl>
-              <FormDescription className = "text-red">
+              <FormDescription className = "text-red w-full">
                 Input your tournament earnings.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        </form>
-        <div className = "max-w-d-md w-full flex flex-col gap-4">
-        <Button variant="destructive"> Submit </Button>
-        </div>
-      </div>
+        <Button variant="destructive" className="w-full"> Submit </Button>
+      </form>
     </Form>
-  )
+    </main>
+  );
 }
 
 export default InputForm;
