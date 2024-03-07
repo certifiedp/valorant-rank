@@ -79,7 +79,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel className = "text-2xl font-weight: 900; text-red flex justify-center" >Valorant Rank Predictor</FormLabel>
               <FormControl>
-                <Input placeholder="name" type = "name"{...field} />
+                <Input placeholder="Name" type = "name"{...field} />
               </FormControl>
               <FormDescription className = "text-red w-full">
                 Input your name.
@@ -95,7 +95,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel> </FormLabel>
               <FormControl>
-                <Input placeholder="game" type = "game"{...field} />
+                <Input placeholder="Game" type = "game"{...field} />
               </FormControl>
               <FormDescription className = "text-red w-full">
                 Input your game.
@@ -111,7 +111,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel></FormLabel>
               <FormControl>
-                <Input placeholder="earnings" type = "earnings" {...field} />
+                <Input placeholder="Earnings" {...field} />
               </FormControl>
               <FormDescription className = "text-red w-full">
                 Input your tournament earnings.
