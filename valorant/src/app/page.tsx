@@ -126,5 +126,3 @@ export function InputForm() {
     </main>
   );
 }
-
-export default InputForm;
