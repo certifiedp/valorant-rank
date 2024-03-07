@@ -19,8 +19,14 @@ import { toast } from "@/components/ui/use-toast"
 
 const FormSchema = z.object({
   username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "Username must be at least two characters.",
   }),
+  game: z.string().min(2, {
+    message: "Game must be at least two characters.",
+  }),
+  earnings: z.number().min(0, {
+    message: "Earnings must be a number."
+  })
 })
 
 export function InputForm() {
@@ -50,13 +56,11 @@ export function InputForm() {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <div class>
-              <FormLabel >Valorant Rank Predictor</FormLabel>
-              </div>
+              <FormLabel className = "text-2xl font-weight: 900; text-red flex justify-center" >Valorant Rank Predictor</FormLabel>
               <FormControl>
                 <Input placeholder="name" {...field} />
               </FormControl>
-              <FormDescription>
+              <FormDescription className = "text-red">
                 Input your name.
               </FormDescription>
               <FormMessage />
@@ -68,14 +72,14 @@ export function InputForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="object-position: center; w-2/3 space-y-6">
         <FormField
           control={form.control}
-          name = "username"
+          game = "game"
           render={({ field }) => (
             <FormItem>
               <FormLabel> </FormLabel>
               <FormControl>
                 <Input placeholder="game" {...field} />
               </FormControl>
-              <FormDescription>
+              <FormDescription className = "text-red">
                 Input your game.
               </FormDescription>
               <FormMessage />
@@ -89,14 +93,14 @@ export function InputForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="object-position: center; w-2/3 space-y-6">
         <FormField
           control={form.control}
-          name = "username"
+          earnings = "username"
           render={({ field }) => (
             <FormItem>
               <FormLabel></FormLabel>
               <FormControl>
                 <Input placeholder="earnings" {...field} />
               </FormControl>
-              <FormDescription>
+              <FormDescription className = "text-red">
                 Input your tournament earnings.
               </FormDescription>
               <FormMessage />
@@ -104,8 +108,6 @@ export function InputForm() {
           )}
         />
         </form>
-      </div>
-      <div className="flex justify-center">
         <Button variant="destructive"> Submit </Button>
       </div>
     </Form>

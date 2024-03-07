@@ -22,6 +22,15 @@ const config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        transparent: 'transparent',
+        current: 'currentColor',
+        'white': '#ffffff',
+        "black": "#000000",
+        "red": "#ff0000",
+        "green": "#00ff00",
+        "blue": "#0000ff",
+        "yellow": "#ffff00",
+        "cyan": "#00ffff",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
@@ -57,6 +66,14 @@ const config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      extend: {
+        objectPosition: {
+          'center-bottom': 'center bottom',
+          'center-left': 'center left',
+          'center-right': 'center right',
+          'center': 'center center',
+        }
       },
       keyframes: {
         "accordion-down": {
